@@ -32,7 +32,7 @@ public class ForceskipCmd extends DJCommand
     {
         super(bot);
         this.name = "forceskip";
-        this.help = "skips the current song";
+        this.help = "Salta la canción actual";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.bePlaying = true;
     }
@@ -42,8 +42,8 @@ public class ForceskipCmd extends DJCommand
     {
         AudioHandler handler = (AudioHandler)event.getGuild().getAudioManager().getSendingHandler();
         RequestMetadata rm = handler.getRequestMetadata();
-        event.reply(event.getClient().getSuccess()+" Skipped **"+handler.getPlayer().getPlayingTrack().getInfo().title
-                +"** "+(rm.getOwner() == 0L ? "(autoplay)" : "(requested by **" + rm.user.username + "**)"));
+        event.reply(event.getClient().getSuccess()+" Se ha saltado **"+handler.getPlayer().getPlayingTrack().getInfo().title
+                +"** "+(rm.getOwner() == 0L ? "(automático)" : "(pedido por **" + rm.user.username + "**)"));
         handler.getPlayer().stopTrack();
     }
 }
